@@ -10,11 +10,6 @@ pipeline {
             steps {
                 bat 'cppcheck --xml --xml-version=2 src 2> build/cppcheck.xml'
             }
-            post {
-                always {
-                    publishCppcheck pattern: 'build/cppcheck.xml'
-                }
-            }
         }
         stage('Target Build') {
             steps {
