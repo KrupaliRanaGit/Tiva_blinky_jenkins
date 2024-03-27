@@ -7,7 +7,7 @@ pipeline {
             }
             post {
               always {
-                    xunit tools: [Custom(customXSL: 'unity.xsl',
+                    xunit tools: [(customXSL: 'unity.xsl',
                         pattern: 'build/artifacts/test/report.xml',
                         skipNoTestFiles: false,
                         stopProcessingIfError: true)]
