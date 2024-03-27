@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Unit Test') {
             steps {
-                sh 'ceedling test:all'
+                bat 'ceedling test:all'
             }
             post {
                   always {
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Static Analysis') {
             steps {
-                sh 'cppcheck --xml --xml-version=2 src 2> build/cppcheck.xml'
+                bat 'cppcheck --xml --xml-version=2 src 2> build/cppcheck.xml'
             }
             post {
                 always {
@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Target Build') {
             steps {
-                sh 'rake release_bin'
+                bat 'rake release_bin'
             }
             post {
                 always {
